@@ -15,6 +15,9 @@ class CreateModelOfBrandsTable extends Migration
     {
         Schema::create('model_of_brands', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->string('name', 100);
             $table->timestamps();
         });
     }
