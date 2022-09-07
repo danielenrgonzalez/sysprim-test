@@ -19,6 +19,5 @@ class Car extends Model
         'plate',
         'year',
         'color',
-        'status',
     ];
 }

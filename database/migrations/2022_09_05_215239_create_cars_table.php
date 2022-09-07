@@ -20,7 +20,6 @@ class CreateCarsTable extends Migration
             $table->string('plate', 255)->unique();
             $table->year('year');
             $table->string('color', 255);
-            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
