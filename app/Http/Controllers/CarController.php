@@ -43,7 +43,11 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        if (is_null($car)) {
+            return 'Car not found';
+        }
+
+        return new CarResource($car);
     }
 
     /**

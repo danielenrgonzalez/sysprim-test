@@ -32,13 +32,6 @@ class HomeController extends Controller
      */
     public function show($car_id)
     {
-        dd($car_id);
-        // $faqCategory = FaqCategory::find($car_id);
-        // if ($faqCategory) {
-        //     $faqs = Faq::where('faq_category_id', $faqCategory->id)->paginate(config('app.pagination_large'));
-        //     return view('admin.backend.faq-categories.show', compact('faqCategory', 'faqs'));
-        // } else {
-        //     return redirect()->back()->with('error', 'Categoría no encontrada');
-        // }
+        return view('show', compact('car_id'));
     }
 }

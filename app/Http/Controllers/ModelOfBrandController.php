@@ -34,14 +34,11 @@ class ModelOfBrandController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ModelOfBrand  $modelOfBrand
      * @return \Illuminate\Http\Response
      */
-    public function show(ModelOfBrand $modelOfBrand)
+    public function show($modelOfBrand_id)
     {
-        if (is_null($modelOfBrand)) {
-            return 'Model not found';
-        }
+        $modelOfBrand = ModelOfBrand::find($modelOfBrand_id);
 
         return new ModelOfBrandResource($modelOfBrand);
     }

@@ -18,4 +18,11 @@ class ModelOfBrand extends Model
         'brand_id',
         'name',
     ];
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'model_of_brands';
 }

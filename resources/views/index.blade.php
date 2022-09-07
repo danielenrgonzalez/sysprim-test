@@ -37,7 +37,7 @@
               if( response !== null ){
                 $("#tblCars").empty();
                 $.each(response.data, function(idx, opt) {
-            $('#tblCars').append('<tr class="text-capitalize"><td>' + opt.id + '</td><td class="text-uppercase">' + opt.plate + '</td><td>' + opt.year + '</td><td>' + opt.color + '</td><td>' + (opt.status==1?'Activo':'Inactivo') +'</td><td>' + opt.created_at +'</td><td><a class="btn btn-primary btn-small" href="{{ route('home.show',1) }}">Detalle</a></td></tr>');
+            $('#tblCars').append('<tr class="text-capitalize"><td>' + opt.id + '</td><td class="text-uppercase">' + opt.plate + '</td><td>' + opt.year + '</td><td>' + opt.color + '</td><td>' + (opt.status==1?'Activo':'Inactivo') +'</td><td>' + opt.created_at +'</td><td><a class="btn btn-primary btn-small" href="{{ url('/')}}/detalle_vehiculo/'+opt.id+'">Detalle</a></td></tr>');
         });
         }
     },

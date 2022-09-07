@@ -31,7 +31,7 @@
             </select>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Registar</button>
+    <button type="submit" class="btn btn-primary" style="float: right">Registar</button>
 </form>
 @endsection
 @push('scripts')
