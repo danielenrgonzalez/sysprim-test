@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class HomeController extends Controller
+class HomeCarController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -13,7 +13,7 @@ class StoreBrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class StoreBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required'],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => 'color',
         ];
     }
 }
