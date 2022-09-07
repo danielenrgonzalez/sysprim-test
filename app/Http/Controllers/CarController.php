@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
 use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
 use App\Http\Resources\CarResource;
+use App\Models\Car;
 
 class CarController extends Controller
 {
@@ -27,7 +27,12 @@ class CarController extends Controller
      */
     public function store(StoreCarRequest $request)
     {
-        //
+        $car = Car::create(['model_of_brand_id' => $request->model_id, 'plate' => $request->plate, 'year' => $request->year, 'color' => $request->color]);
+
+        if ($car) {
+            return new CarResource($car);
+        }
+        return 'error';
     }
 
     /**

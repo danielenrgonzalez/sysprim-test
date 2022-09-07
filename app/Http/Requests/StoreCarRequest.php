@@ -13,7 +13,7 @@ class StoreCarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class StoreCarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'model_id' => ['required', 'exists:App\Models\ModelOfBrand,id'],
+            'plate' => ['required', 'string', 'max:255', 'unique:App\Models\Car'],
+            'year' => ['required'],
+            'color' => ['required'],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'model_id' => 'modelo',
+            'plate' => 'placa',
+            'year' => 'año',
+            'color' => 'color',
         ];
     }
 }
