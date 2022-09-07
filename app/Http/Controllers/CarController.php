@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
 use App\Http\Resources\CarResource;
 use App\Models\Car;
+use Illuminate\Support\Str;
 
 class CarController extends Controller
 {
@@ -59,7 +60,16 @@ class CarController extends Controller
      */
     public function update(UpdateCarRequest $request, Car $car)
     {
-        //
+        $car->model_of_brand_id = $request->model_id;
+        $car->plate = Str::lower($request->plate);
+           $car->year = $request->year;
+           $car->color = Str::lower($request->color);
+
+           if ($car->save()) {
+            return new CarResource($car);
+        } else {
+            return 'Ocurrió un error';
+        }
     }
 
     /**

@@ -10,7 +10,6 @@
             <th scope="col">Placa</th>
             <th scope="col">Año</th>
             <th scope="col">Color</th>
-            <th scope="col">Estatus</th>
             <th scope="col">Fecha de registro</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -36,7 +35,7 @@
               if( response !== null ){
                 $("#tblCars").empty();
                 $.each(response.data, function(idx, opt) {
-            $('#tblCars').append('<tr class="text-capitalize"><td>' + opt.id + '</td><td class="text-uppercase">' + opt.plate + '</td><td>' + opt.year + '</td><td>' + opt.color + '</td><td>' + (opt.status==1?'Activo':'Inactivo') +'</td><td>' + opt.created_at +'</td><td><a class="btn btn-primary btn-small" href="{{ url('/')}}/detalle_vehiculo/'+opt.id+'">Detalle</a><button class="btn btn-danger btn-small mx-1" onclick="deleteCar('+opt.id+')">Eliminar</button></td></tr>');
+            $('#tblCars').append('<tr class="text-capitalize"><td>' + opt.id + '</td><td class="text-uppercase">' + opt.plate + '</td><td>' + opt.year + '</td><td>' + opt.color + '</td><td>' + opt.created_at +'</td><td><a class="btn btn-primary btn-small" href="{{ url('/')}}/detalle_vehiculo/'+opt.id+'">Detalle</a><a class="btn btn-success btn-small mx-1" href="{{ url('/')}}/editar_vehiculo/'+opt.id+'">Editar</a><button class="btn btn-danger btn-small" onclick="deleteCar('+opt.id+')">Eliminar</button></td></tr>');
         });
         }
     },

@@ -34,4 +34,15 @@ class HomeController extends Controller
     {
         return view('show', compact('car_id'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $car_id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($car_id)
+    {
+        return view('edit', compact('car_id'));
+    }
 }

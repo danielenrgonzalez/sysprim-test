@@ -19,6 +19,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
     Route::get('/regitrar_vehiculo', 'create')->name('home.create');
     Route::get('/detalle_vehiculo/{car_id}', 'show')->name('home.show');
+    Route::get('/editar_vehiculo/{car_id}', 'edit')->name('home.edit');
 });
 
 
