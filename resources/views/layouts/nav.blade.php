@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ route('brand.index') }}">Marcas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Modelos</a>
+                    <a class="nav-link" href="{{ route('model.index') }}">Modelos</a>
                 </li>
             </ul>
         </div>

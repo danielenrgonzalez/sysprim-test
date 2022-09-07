@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeCarController;
 use App\Http\Controllers\HomeBrandController;
+use App\Http\Controllers\HomeModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,8 @@ Route::controller(HomeBrandController::class)->group(function () {
     Route::get('/detalle_marca/{brand_id}', 'show')->name('brand.show');
 });
 
-
+Route::controller(HomeModelController::class)->group(function () {
+    Route::get('/models', 'index')->name('model.index');
+    Route::get('/regitrar_modelo', 'create')->name('model.create');
+    Route::get('/detalle_modelo/{model_id}', 'show')->name('model.show');
+});
