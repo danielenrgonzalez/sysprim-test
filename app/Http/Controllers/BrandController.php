@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
+use App\Http\Resources\BrandResource;
 
 class BrandController extends Controller
 {
@@ -15,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return BrandResource::collection(Brand::all());
     }
 
     /**
@@ -37,7 +38,11 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        if (is_null($brand)) {
+            return 'Brand not found';
+        }
+
+        return new BrandResource($brand);
     }
 
     /**

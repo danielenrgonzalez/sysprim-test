@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelOfBrand;
 use App\Http\Requests\StoreModelOfBrandRequest;
 use App\Http\Requests\UpdateModelOfBrandRequest;
+use App\Http\Resources\ModelOfBrandResource;
+use App\Models\Brand;
+use App\Models\ModelOfBrand;
 
 class ModelOfBrandController extends Controller
 {
@@ -15,7 +17,7 @@ class ModelOfBrandController extends Controller
      */
     public function index()
     {
-        //
+        return ModelOfBrandResource::collection(ModelOfBrand::all());
     }
 
     /**
@@ -37,7 +39,11 @@ class ModelOfBrandController extends Controller
      */
     public function show(ModelOfBrand $modelOfBrand)
     {
-        //
+        if (is_null($modelOfBrand)) {
+            return 'Model not found';
+        }
+
+        return new ModelOfBrandResource($modelOfBrand);
     }
 
     /**
@@ -61,5 +67,20 @@ class ModelOfBrandController extends Controller
     public function destroy(ModelOfBrand $modelOfBrand)
     {
         //
+    }
+
+    /**
+     * Display the specified resource by Brand.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function showByBrand($brand)
+    {
+        if (is_null($brand)) {
+            return 'Brand not found';
+        }
+        $modelOfBrand = ModelOfBrand::where('brand_id', $brand)->get();
+
+        return  ModelOfBrandResource::collection($modelOfBrand);
     }
 }
