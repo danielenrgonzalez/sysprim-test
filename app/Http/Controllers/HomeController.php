@@ -11,7 +11,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('cars.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('cars.create');
     }
 
     /**
@@ -32,7 +32,7 @@ class HomeController extends Controller
      */
     public function show($car_id)
     {
-        return view('show', compact('car_id'));
+        return view('cars.show', compact('car_id'));
     }
 
     /**
@@ -43,6 +43,6 @@ class HomeController extends Controller
      */
     public function edit($car_id)
     {
-        return view('edit', compact('car_id'));
+        return view('cars.edit', compact('car_id'));
     }
 }
