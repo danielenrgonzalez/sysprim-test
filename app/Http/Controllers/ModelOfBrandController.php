@@ -28,7 +28,12 @@ class ModelOfBrandController extends Controller
      */
     public function store(StoreModelOfBrandRequest $request)
     {
-        //
+        $modelOfBrand = ModelOfBrand::create(['brand_id' => $request->brand_id, 'name' => $request->name]);
+
+        if ($modelOfBrand) {
+            return new ModelOfBrandResource($modelOfBrand);
+        }
+        return 'error';
     }
 
     /**
@@ -78,6 +83,6 @@ class ModelOfBrandController extends Controller
         }
         $modelOfBrand = ModelOfBrand::where('brand_id', $brand)->get();
 
-        return  ModelOfBrandResource::collection($modelOfBrand);
+        return ModelOfBrandResource::collection($modelOfBrand);
     }
 }

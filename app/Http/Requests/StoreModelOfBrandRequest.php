@@ -13,10 +13,10 @@ class StoreModelOfBrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
+     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -24,7 +24,21 @@ class StoreModelOfBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'brand_id' => ['required', 'exists:App\Models\Brand,id'],
+            'name' => ['required'],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'brand_id' => 'marca',
+            'name' => 'nombre',
         ];
     }
 }
