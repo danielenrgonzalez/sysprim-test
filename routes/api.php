@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ModelOfBrandController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::apiResource('cars', CarController::class);
+Route::apiResource('models', ModelOfBrandController::class);
+Route::apiResource('brands', BrandController::class);
+Route::get('/show_by_brand/{brand_id}', [ModelOfBrandController::class, 'showByBrand']);
